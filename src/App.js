@@ -5,11 +5,18 @@ import './App.css';
 
 class App extends Component {
 
-        state = {
+    constructor(){
+        super();
+        this.state = {
             term: '',
             results: []
         };
+    }
 
+        // state = {
+        //     term: '',
+        //     results: []
+        // };
 
 /*
  It submits a get request to the Urban Dictionary API with the term we want to query.
