@@ -6,74 +6,40 @@ import './App.css';
 
 class App extends Component {
 
-    constructor() {
-        super();
-        this.state = {
+        state = {
             term: '',
             results: []
-        }
-    }
-    //
-    // componentWillMount() {
-    //     fetch(`api.urbandictionary.com/v0/define?term=gnar`)
-    //         .then(response => {
-    //             return response.json()
-    //         })
-    //         .then(data => {
-    //             this.setState({definitions: data.definitions})
-    //             console.log("fetch:", this.state)
-    //         })
-    // }
+        };
 
-    componentWillMount() {
 
-        fetch('https://randomuser.me/api/?results=50')
-            .then(results => {
-                return results.json();
-            })
-            .then(data => {
-                this.setState({results: data.results})
-                console.log(this.state)
-            })
+    componentDidMount() {
+
+        fetch('https://api.urbandictionary.com/v0/define?term=war')
+            .then(results => results.json())
+            .then(data => this.setState({results: data.list}))
+        // console.log(this.state)
     }
 
-    // state = {
-    //     term: '',
-    //     definition: ''
-    // }
-
-    handleSubmit = (e) => {
-        e.preventDefault();
-        const data = JSON.stringify({...this.state})
-
-        this.getDefinition
-    }
 
     render() {
 
-
+        const {results} = this.state;
         return (
             <Fragment>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text"
-                           className="form-control"
-                           id="InputTerm"
-                           placeholder="Input Term"
-                           onChange={e => this.setState({term: e.target.value})}/>
-                    <input type="submit" value="submit"/>
-                </form>
-                {/*<section >*/}
-                    {/*{result.map((def) =>*/}
-
-                            {/*<Fragment >*/}
-                                {/*<h3>{def.list.definition}</h3>*/}
-                            {/*</Fragment>*/}
-                    {/*)*/}
-                    {/*}*/}
-                {/*</section>*/}
+                <ul>
+                {results.map(
+                    result =>
+                        <li key={result.defid}>
+                            {result.definition}
+                            {/*<a href={result.permalink}>{result.definition}</a>*/}
+                        </li>
+                )}
+                </ul>
             </Fragment>
-        );
+
+        )
     }
 }
+
 
 export default App;
