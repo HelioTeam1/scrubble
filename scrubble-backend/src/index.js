@@ -1,6 +1,8 @@
 const { GraphQLServer } = require('graphql-yoga')
 const { Prisma } = require('prisma-binding')
 
+const URL = `http://api.urbandictionary.com/v0/define?term=`
+
 const resolvers = {
   Query: {
     feed(parent, args, ctx, info) {
@@ -12,8 +14,8 @@ const resolvers = {
     post(parent, { id }, ctx, info) {
       return ctx.db.query.post({ where: { id } }, info)
     },
-      term(parent, { id }, ctx, info) {
-          return ctx.db.query.term({ where: { id } }, info)
+      getTerm (parent, term) {
+      return fetch(`${URL}${term}`).then(res => res.json()).then(res=>JSON.stringify(res))
       },
   },
   Mutation: {
@@ -50,7 +52,7 @@ const server = new GraphQLServer({
     ...req,
     db: new Prisma({
       typeDefs: 'src/generated/prisma.graphql', // the auto-generated GraphQL schema of the Prisma API
-      endpoint: 'https://us1.prisma.sh/public-grovepuppy-593/scrubble-backend/dev', // the endpoint of the Prisma API
+      endpoint: 'https://us1.prisma.sh/public-waxbird-130/scrubble-backend/dev', // the endpoint of the Prisma API
       debug: true, // log all GraphQL queries & mutations sent to the Prisma API
       // secret: 'mysecret123', // only needed if specified in `database/prisma.yml`
     }),

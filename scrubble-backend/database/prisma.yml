@@ -1,5 +1,5 @@
 # The endpoint of your Prisma API (deployed to a Prisma Sandbox).
-endpoint: https://us1.prisma.sh/public-grovepuppy-593/scrubble-backend/dev
+endpoint: https://us1.prisma.sh/public-waxbird-130/scrubble-backend/dev
 
 # The file containing the definition of your data model.
 datamodel: datamodel.graphql
