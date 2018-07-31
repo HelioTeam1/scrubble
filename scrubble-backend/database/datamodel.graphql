@@ -3,8 +3,19 @@ type Post {
   isPublished: Boolean! @default(value: false)
   title: String!
   text: String!
+
 }
-type Term{
-    id: ID! @unique
-    word: String
+
+type Term {
+  id:ID! @unique
+  definition:String
+  permaLink:String
+  thumbs_up:Int
+  author:String
+  word:String
+  defid:Int
+  current_Votes:String
+  writtenOn:String
+  example:String
+  thumbs_down:Int
 }

@@ -1,5 +1,5 @@
-# source: https://us1.prisma.sh/public-grovepuppy-593/scrubble-backend/dev
-# timestamp: Mon Jul 30 2018 15:31:12 GMT-0600 (Mountain Daylight Time)
+# source: https://us1.prisma.sh/public-waxbird-130/scrubble-backend/dev
+# timestamp: Tue Jul 31 2018 13:17:45 GMT-0600 (Mountain Daylight Time)
 
 type AggregatePost {
   count: Int!
@@ -322,7 +322,16 @@ type Subscription {
 
 type Term implements Node {
   id: ID!
+  definition: String
+  permaLink: String
+  thumbs_up: Int
+  author: String
   word: String
+  defid: Int
+  current_Votes: String
+  writtenOn: String
+  example: String
+  thumbs_down: Int
 }
 
 """A connection to a list of items."""
@@ -336,7 +345,16 @@ type TermConnection {
 }
 
 input TermCreateInput {
+  definition: String
+  permaLink: String
+  thumbs_up: Int
+  author: String
   word: String
+  defid: Int
+  current_Votes: String
+  writtenOn: String
+  example: String
+  thumbs_down: Int
 }
 
 """An edge in a connection."""
@@ -351,8 +369,26 @@ type TermEdge {
 enum TermOrderByInput {
   id_ASC
   id_DESC
+  definition_ASC
+  definition_DESC
+  permaLink_ASC
+  permaLink_DESC
+  thumbs_up_ASC
+  thumbs_up_DESC
+  author_ASC
+  author_DESC
   word_ASC
   word_DESC
+  defid_ASC
+  defid_DESC
+  current_Votes_ASC
+  current_Votes_DESC
+  writtenOn_ASC
+  writtenOn_DESC
+  example_ASC
+  example_DESC
+  thumbs_down_ASC
+  thumbs_down_DESC
   updatedAt_ASC
   updatedAt_DESC
   createdAt_ASC
@@ -361,7 +397,16 @@ enum TermOrderByInput {
 
 type TermPreviousValues {
   id: ID!
+  definition: String
+  permaLink: String
+  thumbs_up: Int
+  author: String
   word: String
+  defid: Int
+  current_Votes: String
+  writtenOn: String
+  example: String
+  thumbs_down: Int
 }
 
 type TermSubscriptionPayload {
@@ -404,7 +449,16 @@ input TermSubscriptionWhereInput {
 }
 
 input TermUpdateInput {
+  definition: String
+  permaLink: String
+  thumbs_up: Int
+  author: String
   word: String
+  defid: Int
+  current_Votes: String
+  writtenOn: String
+  example: String
+  thumbs_down: Int
 }
 
 input TermWhereInput {
@@ -456,6 +510,148 @@ input TermWhereInput {
 
   """All values not ending with the given string."""
   id_not_ends_with: ID
+  definition: String
+
+  """All values that are not equal to given value."""
+  definition_not: String
+
+  """All values that are contained in given list."""
+  definition_in: [String!]
+
+  """All values that are not contained in given list."""
+  definition_not_in: [String!]
+
+  """All values less than the given value."""
+  definition_lt: String
+
+  """All values less than or equal the given value."""
+  definition_lte: String
+
+  """All values greater than the given value."""
+  definition_gt: String
+
+  """All values greater than or equal the given value."""
+  definition_gte: String
+
+  """All values containing the given string."""
+  definition_contains: String
+
+  """All values not containing the given string."""
+  definition_not_contains: String
+
+  """All values starting with the given string."""
+  definition_starts_with: String
+
+  """All values not starting with the given string."""
+  definition_not_starts_with: String
+
+  """All values ending with the given string."""
+  definition_ends_with: String
+
+  """All values not ending with the given string."""
+  definition_not_ends_with: String
+  permaLink: String
+
+  """All values that are not equal to given value."""
+  permaLink_not: String
+
+  """All values that are contained in given list."""
+  permaLink_in: [String!]
+
+  """All values that are not contained in given list."""
+  permaLink_not_in: [String!]
+
+  """All values less than the given value."""
+  permaLink_lt: String
+
+  """All values less than or equal the given value."""
+  permaLink_lte: String
+
+  """All values greater than the given value."""
+  permaLink_gt: String
+
+  """All values greater than or equal the given value."""
+  permaLink_gte: String
+
+  """All values containing the given string."""
+  permaLink_contains: String
+
+  """All values not containing the given string."""
+  permaLink_not_contains: String
+
+  """All values starting with the given string."""
+  permaLink_starts_with: String
+
+  """All values not starting with the given string."""
+  permaLink_not_starts_with: String
+
+  """All values ending with the given string."""
+  permaLink_ends_with: String
+
+  """All values not ending with the given string."""
+  permaLink_not_ends_with: String
+  thumbs_up: Int
+
+  """All values that are not equal to given value."""
+  thumbs_up_not: Int
+
+  """All values that are contained in given list."""
+  thumbs_up_in: [Int!]
+
+  """All values that are not contained in given list."""
+  thumbs_up_not_in: [Int!]
+
+  """All values less than the given value."""
+  thumbs_up_lt: Int
+
+  """All values less than or equal the given value."""
+  thumbs_up_lte: Int
+
+  """All values greater than the given value."""
+  thumbs_up_gt: Int
+
+  """All values greater than or equal the given value."""
+  thumbs_up_gte: Int
+  author: String
+
+  """All values that are not equal to given value."""
+  author_not: String
+
+  """All values that are contained in given list."""
+  author_in: [String!]
+
+  """All values that are not contained in given list."""
+  author_not_in: [String!]
+
+  """All values less than the given value."""
+  author_lt: String
+
+  """All values less than or equal the given value."""
+  author_lte: String
+
+  """All values greater than the given value."""
+  author_gt: String
+
+  """All values greater than or equal the given value."""
+  author_gte: String
+
+  """All values containing the given string."""
+  author_contains: String
+
+  """All values not containing the given string."""
+  author_not_contains: String
+
+  """All values starting with the given string."""
+  author_starts_with: String
+
+  """All values not starting with the given string."""
+  author_not_starts_with: String
+
+  """All values ending with the given string."""
+  author_ends_with: String
+
+  """All values not ending with the given string."""
+  author_not_ends_with: String
   word: String
 
   """All values that are not equal to given value."""
@@ -496,6 +692,170 @@ input TermWhereInput {
 
   """All values not ending with the given string."""
   word_not_ends_with: String
+  defid: Int
+
+  """All values that are not equal to given value."""
+  defid_not: Int
+
+  """All values that are contained in given list."""
+  defid_in: [Int!]
+
+  """All values that are not contained in given list."""
+  defid_not_in: [Int!]
+
+  """All values less than the given value."""
+  defid_lt: Int
+
+  """All values less than or equal the given value."""
+  defid_lte: Int
+
+  """All values greater than the given value."""
+  defid_gt: Int
+
+  """All values greater than or equal the given value."""
+  defid_gte: Int
+  current_Votes: String
+
+  """All values that are not equal to given value."""
+  current_Votes_not: String
+
+  """All values that are contained in given list."""
+  current_Votes_in: [String!]
+
+  """All values that are not contained in given list."""
+  current_Votes_not_in: [String!]
+
+  """All values less than the given value."""
+  current_Votes_lt: String
+
+  """All values less than or equal the given value."""
+  current_Votes_lte: String
+
+  """All values greater than the given value."""
+  current_Votes_gt: String
+
+  """All values greater than or equal the given value."""
+  current_Votes_gte: String
+
+  """All values containing the given string."""
+  current_Votes_contains: String
+
+  """All values not containing the given string."""
+  current_Votes_not_contains: String
+
+  """All values starting with the given string."""
+  current_Votes_starts_with: String
+
+  """All values not starting with the given string."""
+  current_Votes_not_starts_with: String
+
+  """All values ending with the given string."""
+  current_Votes_ends_with: String
+
+  """All values not ending with the given string."""
+  current_Votes_not_ends_with: String
+  writtenOn: String
+
+  """All values that are not equal to given value."""
+  writtenOn_not: String
+
+  """All values that are contained in given list."""
+  writtenOn_in: [String!]
+
+  """All values that are not contained in given list."""
+  writtenOn_not_in: [String!]
+
+  """All values less than the given value."""
+  writtenOn_lt: String
+
+  """All values less than or equal the given value."""
+  writtenOn_lte: String
+
+  """All values greater than the given value."""
+  writtenOn_gt: String
+
+  """All values greater than or equal the given value."""
+  writtenOn_gte: String
+
+  """All values containing the given string."""
+  writtenOn_contains: String
+
+  """All values not containing the given string."""
+  writtenOn_not_contains: String
+
+  """All values starting with the given string."""
+  writtenOn_starts_with: String
+
+  """All values not starting with the given string."""
+  writtenOn_not_starts_with: String
+
+  """All values ending with the given string."""
+  writtenOn_ends_with: String
+
+  """All values not ending with the given string."""
+  writtenOn_not_ends_with: String
+  example: String
+
+  """All values that are not equal to given value."""
+  example_not: String
+
+  """All values that are contained in given list."""
+  example_in: [String!]
+
+  """All values that are not contained in given list."""
+  example_not_in: [String!]
+
+  """All values less than the given value."""
+  example_lt: String
+
+  """All values less than or equal the given value."""
+  example_lte: String
+
+  """All values greater than the given value."""
+  example_gt: String
+
+  """All values greater than or equal the given value."""
+  example_gte: String
+
+  """All values containing the given string."""
+  example_contains: String
+
+  """All values not containing the given string."""
+  example_not_contains: String
+
+  """All values starting with the given string."""
+  example_starts_with: String
+
+  """All values not starting with the given string."""
+  example_not_starts_with: String
+
+  """All values ending with the given string."""
+  example_ends_with: String
+
+  """All values not ending with the given string."""
+  example_not_ends_with: String
+  thumbs_down: Int
+
+  """All values that are not equal to given value."""
+  thumbs_down_not: Int
+
+  """All values that are contained in given list."""
+  thumbs_down_in: [Int!]
+
+  """All values that are not contained in given list."""
+  thumbs_down_not_in: [Int!]
+
+  """All values less than the given value."""
+  thumbs_down_lt: Int
+
+  """All values less than or equal the given value."""
+  thumbs_down_lte: Int
+
+  """All values greater than the given value."""
+  thumbs_down_gt: Int
+
+  """All values greater than or equal the given value."""
+  thumbs_down_gte: Int
 }
 
 input TermWhereUniqueInput {
