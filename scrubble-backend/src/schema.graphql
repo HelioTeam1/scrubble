@@ -4,7 +4,20 @@ type Query {
   feed: [Post!]!
   drafts: [Post!]!
   post(id: ID!): Post
-  getTerm(word:String): String!
+  getTerm(word:String): list
+}
+
+type list{
+  definition:String
+  permaLink:String
+  thumbs_up:Int
+  author:String
+  word:String
+  defid:Int
+  current_Votes:String
+  writtenOn:String
+  example:String
+  thumbs_down:Int
 }
 
 type Mutation {
