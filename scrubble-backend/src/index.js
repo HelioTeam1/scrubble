@@ -1,49 +1,52 @@
-const { GraphQLServer } = require('graphql-yoga')
-const { Prisma } = require('prisma-binding')
+const {GraphQLServer} = require('graphql-yoga');
+const {Prisma} = require('prisma-binding');
+// const fetch = require('node-fetch');
 
-const URL = `http://api.urbandictionary.com/v0/define?term=`
+const URL = `http://api.urbandictionary.com/v0/define?term=`;
+// term = light`;
 
 const resolvers = {
-  Query: {
-    feed(parent, args, ctx, info) {
-      return ctx.db.query.posts({ where: { isPublished: true } }, info)
-    },
-    drafts(parent, args, ctx, info) {
-      return ctx.db.query.posts({ where: { isPublished: false } }, info)
-    },
-    post(parent, { id }, ctx, info) {
-      return ctx.db.query.post({ where: { id } }, info)
-    },
-      getTerm (parent, term) {
-      return fetch(`${URL}${term}`).then(res => res.json()).then(res=>JSON.stringify(res))
-      },
-  },
-  Mutation: {
-    createDraft(parent, { title, text }, ctx, info) {
-      return ctx.db.mutation.createPost(
-        {
-          data: {
-            title,
-            text,
-          },
+    Query: {
+        feed(parent, args, ctx, info) {
+            return ctx.db.query.posts({where: {isPublished: true}}, info)
         },
-        info,
-      )
-    },
-    deletePost(parent, { id }, ctx, info) {
-      return ctx.db.mutation.deletePost({ where: { id } }, info)
-    },
-    publish(parent, { id }, ctx, info) {
-      return ctx.db.mutation.updatePost(
-        {
-          where: { id },
-          data: { isPublished: true },
+        drafts(parent, args, ctx, info) {
+            return ctx.db.query.posts({where: {isPublished: false}}, info)
         },
-        info,
-      )
+        post(parent, {id}, ctx, info) {
+            return ctx.db.query.post({where: {id}}, info)
+        },
+        async getTerm(parent, args) {
+            const {term} = args;
+            return await fetch(`${URL}${term}`).then(res => res.json())
+        },
     },
-  },
-}
+    Mutation: {
+        createDraft(parent, {title, text}, ctx, info) {
+            return ctx.db.mutation.createPost(
+                {
+                    data: {
+                        title,
+                        text,
+                    },
+                },
+                info,
+            )
+        },
+        deletePost(parent, {id}, ctx, info) {
+            return ctx.db.mutation.deletePost({where: {id}}, info)
+        },
+        publish(parent, {id}, ctx, info) {
+            return ctx.db.mutation.updatePost(
+                {
+                    where: {id},
+                    data: {isPublished: true},
+                },
+                info,
+            )
+        },
+    },
+};
 
 const server = new GraphQLServer({
   typeDefs: './src/schema.graphql',
