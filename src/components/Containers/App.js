@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
-import './App.css';
-import gql from "graphql-tag";
-import { Query } from "react-apollo";
+import '../Modals/App.css';
+import { gql } from "apollo-boost";
+import {Query} from "react-apollo";
 
 
 const PRACTICE_QUERY = gql`
@@ -13,15 +13,13 @@ const PRACTICE_QUERY = gql`
         }
     }
 
-`
+`;
 
 const getTerm = gql`
     query{
         getTerm
-
     }
-    
-`
+`;
 
 
 class App extends Component {
@@ -33,7 +31,6 @@ class App extends Component {
             results: []
         };
     }
-
 
 
     /*
@@ -50,8 +47,6 @@ class App extends Component {
         //checks if the term is an empty string and doesn't do the GET request if it is
 
 
-
-
         // if(this.state.term === ""){
         //     return;
         // }
@@ -63,11 +58,7 @@ class App extends Component {
         //
         //
         //
-    }
-
-
-
-
+    };
 
 
     render() {
@@ -76,24 +67,22 @@ class App extends Component {
         return (
             <Fragment>
 
-            <Query query={getTerm}>
-                {({ loading, error, data }) => {
-                    if (loading) return "Loading...";
-                    if (error) return `Error! ${error.message}`;
+                <Query query={getTerm}>
+                    {({loading, error, data}) => {
+                        if (loading) return "Loading...";
+                        if (error) return `Error! ${error.message}`;
 
-                    return (
-                    <h1>{JSON.stringify(data.getTerm)}</h1>
-
-                    );
-                }}
-            </Query>
+                        return (
+                            <h1>{data.getTerm}</h1>
+                            //*<h1>{JSON.stringify(data.getTerm.definition)}</h1>*/
+                        );
+                    }}
+                </Query>
             </Fragment>
 
         )
     }
 }
-
-
 
 
 export default App;
