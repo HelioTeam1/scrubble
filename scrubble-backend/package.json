@@ -7,8 +7,11 @@
     "prisma": "prisma"
   },
   "dependencies": {
+    "apollo-boost": "^0.1.12",
+    "graphql": "^0.13.2",
     "graphql-yoga": "1.15.0",
-    "prisma-binding": "2.1.1"
+    "prisma-binding": "2.1.1",
+    "react-apollo": "^2.1.9"
   },
   "devDependencies": {
     "graphql-cli": "2.16.5",
