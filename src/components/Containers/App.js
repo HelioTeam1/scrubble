@@ -4,8 +4,6 @@ import {gql} from "apollo-boost";
 import {ApolloConsumer} from "react-apollo";
 
 
-
-
 const GET_TERM = gql`
     query getTerm($term: String!){
         getTerm(term: $term){
@@ -33,7 +31,8 @@ class App extends Component {
         super();
         this.state = {
             term: '',
-            results: []
+            results: [],
+            def: ''
         };
     }
 
@@ -65,10 +64,12 @@ class App extends Component {
     // };
 
     onTermFetched = term => this.setState(() => ({term}));
+    onDefFetched = def => this.setState(() => ({def}))
 
     render() {
+
         //variable results that is set to the current state
-        const {results} = this.state
+        const {results} = this.state.results
         return (
             <Fragment>
                 <ApolloConsumer>
@@ -82,11 +83,16 @@ class App extends Component {
                                         variables: {term: this.state.term}
                                     });
                                     this.onTermFetched(data.term);
-                                        // .then(results => results.json())
-                                        // .then(data => this.setState({results: data.list}))
+                                    this.onDefFetched(data.getTerm.list[0].definition)
+                                    // .then(results => results.json())
+                                    // .then(data => this.setState({results: data.list}))
                                     console.log(data)
+                                    const thisTerm = this.state.term
 
-                                }}
+                                    const thisDef = data.getTerm.list[0].definition
+
+                                }
+                                }
                                 >
                                     <input type="text"
                                            placeholder="Lookup a word"
@@ -98,12 +104,15 @@ class App extends Component {
                                         // disabled={this.state.term === ""}
                                     />
                                 </form>
+                                <h1>{this.state.term}</h1>
+                                <h2>{this.state.def}</h2>
                                 {/*<h1>{JSON.stringify(data.getTerm.list[4])}</h1>*/}
                                 {/*<h1>{JSON.stringify(data.getTerm)}</h1>*/}
                                 {/*{console.log(data)}*/}
                             </div>
                         );
-                    }}
+                    }
+                    }
                 </ApolloConsumer>
             </Fragment>
 
