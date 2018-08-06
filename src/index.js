@@ -4,7 +4,7 @@ import './components/Modals/index.css';
 import App from './components/Containers/App';
 import registerServiceWorker from './registerServiceWorker';
 import ApolloClient from "apollo-boost";
-import gql from "graphql-tag";
+// import gql from "graphql-tag";
 import { ApolloProvider } from "react-apollo";
 
 
