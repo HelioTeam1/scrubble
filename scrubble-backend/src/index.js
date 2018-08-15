@@ -1,6 +1,5 @@
 const {GraphQLServer} = require('graphql-yoga');
 const {Prisma} = require('prisma-binding');
-// const fetch = require('node-fetch');
 
 const URL = `http://api.urbandictionary.com/v0/define?term=`;
 
