@@ -1,5 +1,5 @@
 import React from 'react'
-const shuffle = require('shuffle-array')
+import shuffle from 'shuffle-array'
 
 const draw = (array = [], queuesize) => {
     const copyOfArray = shuffle(array);

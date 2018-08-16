@@ -1,0 +1,18 @@
+
+body {
+    margin: 5%;
+}
+
+.square {
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+}
+
+.table {
+    margin: auto;
+    font-size: 24px;
+    font-weight: bold;
+    table-layout: fixed;
+}
