@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './components/Modals/index.css';
+// import './components/Modals/index.css';
 import App from './components/Containers/App';
 import registerServiceWorker from './registerServiceWorker';
 import ApolloClient from "apollo-boost";

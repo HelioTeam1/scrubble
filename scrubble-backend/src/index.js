@@ -4,6 +4,7 @@ const {Prisma} = require('prisma-binding');
 const URL = `http://api.urbandictionary.com/v0/define?term=`;
 
 const resolvers = {
+
     Query: {
         feed(parent, args, ctx, info) {
             return ctx.db.query.posts({where: {isPublished: true}}, info)
@@ -17,6 +18,30 @@ const resolvers = {
         async getTerm(parent, args) {
             const {term} = args;
             return await fetch(`${URL}${term}`).then(res => res.json())
+
+  Query: {
+    feed(parent, args, ctx, info) {
+      return ctx.db.query.posts({ where: { isPublished: true } }, info)
+    },
+    drafts(parent, args, ctx, info) {
+      return ctx.db.query.posts({ where: { isPublished: false } }, info)
+    },
+    post(parent, { id }, ctx, info) {
+      return ctx.db.query.post({ where: { id } }, info)
+    },
+      getTerm (term) {
+      return fetch(`${URL}${term}`).then(res => res.json()).then(res=>JSON.stringify(res))
+      },
+  },
+  Mutation: {
+    createDraft(parent, { title, text }, ctx, info) {
+      return ctx.db.mutation.createPost(
+        {
+          data: {
+            title,
+            text,
+          },
+
         },
     },
     Mutation: {
