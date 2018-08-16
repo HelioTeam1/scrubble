@@ -2,6 +2,7 @@
 
 
 type Query {
+
     feed: [Post!]!
     drafts: [Post!]!
     post(id: ID!): Post
@@ -34,3 +35,29 @@ type Mutation {
     deletePost(id: ID!): Post
     publish(id: ID!): Post
 }
+
+  feed: [Post!]!
+  drafts: [Post!]!
+  post(id: ID!): Post
+  getTerm(word:String): list
+}
+
+type Mutation {
+  createDraft(title: String!, text: String): Post
+  deletePost(id: ID!): Post
+  publish(id: ID!): Post
+}
+
+type list {
+  definition:String
+  permaLink:String
+  thumbs_up:Int
+  author:String
+  word:String
+  defid:Int
+  current_Votes:String
+  writtenOn:String
+  example:String
+  thumbs_down:Int
+}
+

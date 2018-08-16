@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import '../Modals/App.css';
+// import '../Modals/App.css';
 import {gql} from "apollo-boost";
 import {ApolloConsumer} from "react-apollo";
 import Game from './Game';
