@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, {Component, Fragment} from 'react';
 import Tiles from './Tile';
 import extractSeven from './ShuffleFunction'
 import draw from './draw'
 import shuffle from 'shuffle-array'
+import GameBoard from "./Board";
 
 export default class Game extends Component {
 
@@ -13,7 +14,7 @@ export default class Game extends Component {
         //create the empty deck
         const deck = [];
         //pushing each letter tile x amount of times into a deck
-        tiles.forEach( (tile) => {
+        tiles.forEach((tile) => {
             for (let i = 0; i < tile.count; i++) {
                 deck.push(tile)
             }
@@ -25,12 +26,17 @@ export default class Game extends Component {
 
 
         return (
+            <Fragment>
+                <div>
+                    <h2>{JSON.stringify(tray)}</h2>
+                    <h2>{JSON.stringify(tray.length)}</h2>
+                    <h2>{JSON.stringify(deck.length)}</h2>
+                </div>
+                <div>
+                    <GameBoard/>
+                </div>
+            </Fragment>
 
-            <div>
-                <h2>{JSON.stringify(tray)}</h2>
-                <h2>{JSON.stringify(tray.length)}</h2>
-                <h2>{JSON.stringify(deck.length)}</h2>
-            </div>
 
         )
     }
