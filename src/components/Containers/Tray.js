@@ -13,7 +13,8 @@ export default class Tray extends Component {
         );
     }
     state = {
-        tray: Array(7).fill('+')
+        tray: Array(7).fill('+'),
+        // deck: []
 
     };
     // constructor() {
@@ -44,7 +45,8 @@ export default class Tray extends Component {
             return (
 
                 <td key={'row_' + i}>
-                    <Square value={t.letter}/>
+                    <Square value={t.letter}
+                            score={t.score}/>
                 </td>
             )
         });
