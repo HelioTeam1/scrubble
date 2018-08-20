@@ -7,12 +7,20 @@ import shuffle from 'shuffle-array'
 
 
 export default class Tray extends Component {
-    constructor() {
-        super()
-        this.state = {
-            tray: Array(7).fill('+')
-        }
+    renderSquare(i) {
+        return (
+            <Square value={this.state.tray[i]}/>
+        );
     }
+    state = {
+        tray: Array(7).fill('+')
+
+    };
+    // constructor() {
+    //     super()
+    //     this.state = {
+    //     }
+    // }
 
     render() {
         //put the 100 tiles into an array
@@ -26,22 +34,23 @@ export default class Tray extends Component {
             }
         });
         //shuffling the deck
-        shuffle(deck)
+        shuffle(deck);
         //creating a tray and drawing tiles from the deck
 
-        this.state.tray = draw(deck)
+        this.state.tray = draw(deck);
 
-        const row = this.state.tray.map((r, i) => {
+
+        const tileTray = this.state.tray.map((t, i) => {
             return (
 
                 <td key={'row_' + i}>
-                            <Square />
+                    <Square value={t.letter}/>
                 </td>
             )
         });
         return (
             <table cellSpacing="0" id="gird" className="table">
-                <tbody>{row}</tbody>
+                <tbody>{tileTray}</tbody>
             </table>
         )
     }

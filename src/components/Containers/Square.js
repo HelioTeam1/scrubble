@@ -1,15 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
 import '../Modals/ScrubbleStyle.css'
 import Tile from './Tile'
 
 
-class Square extends Component {
-    render() {
+const Square = (Tile) => {
         return(
             <td className="square">
+                {Tile.value}
             </td>
         )
-    }
-}
+};
 
 export default Square;
