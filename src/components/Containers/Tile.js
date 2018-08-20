@@ -1,5 +1,4 @@
 import React, {Component, Fragment} from 'react';
-import Tiles from './Tiles';
 
 class Tile extends Component {
     render() {
@@ -10,14 +9,14 @@ class Tile extends Component {
 
         const tilePiece = {
             letter: 'A',
-            score: '',
+            score: '2',
             count: ''
-        }
+        };
 
         return(
             <div className="tile-piece">
                 <h1>{tilePiece.letter}</h1>
-                <h4>{tilePiece.score}</h4>
+                <h6>{tilePiece.score}</h6>
             </div>
         )
     }

@@ -30,9 +30,9 @@ export default class Game extends Component {
         return (
             <Fragment>
                 <div>
-                    <h2>{JSON.stringify(tray)}</h2>
-                    <h2>{JSON.stringify(tray.length)}</h2>
-                    <h2>{JSON.stringify(deck.length)}</h2>
+                    <h2>{tray.map(tile => tile.letter + " " + tile.score + ' ')}</h2>
+                    <h2>{tray.length}</h2>
+                    <h2>{deck.length}</h2>
                 </div>
                 <div>
                     <GameBoard/>
