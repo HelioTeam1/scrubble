@@ -11,34 +11,14 @@ export default class Game extends Component {
 
 
     render() {
-        //put the 100 tiles into an array
-        const tiles = Tiles;
-        //create the empty deck
-        const deck = [];
-        //pushing each letter tile x amount of times into a deck
-        tiles.forEach((tile) => {
-            for (let i = 0; i < tile.count; i++) {
-                deck.push(tile)
-            }
-        });
-        //shuffling the deck
-        shuffle(deck)
-        //creating a tray and drawing tiles from the deck
-        let tray = draw(deck)
 
 
         return (
             <Fragment>
                 <div>
-                    <h2>{tray.map(tile => tile.letter + " " + tile.score + ' ')}</h2>
-                    <h2>{tray.length}</h2>
-                    <h2>{deck.length}</h2>
-                </div>
-                <div>
                     <GameBoard/>
                     <br/>
                     <Tray />
-                    <Tile />
                 </div>
             </Fragment>
 
