@@ -11,15 +11,35 @@ body {
     padding-left: 5px;
 }
 
+.board {
+    margin: auto;
+    font-size: 24px;
+    font-weight: bold;
+    table-layout: fixed;
+    border: 3px solid black;
+}
+
 .table {
     margin: auto;
     font-size: 24px;
     font-weight: bold;
     table-layout: fixed;
+    width: 340px;
+    height: 60px;
+    border: 3px solid black;
+    padding: 5px;
 }
 .tile-score {
     font-size: 10px;
     float: right;
     padding-top: 15px;
     padding-right: 5px;
+}
+
+.tile-piece {
+    background-image: url('../Docs/wood_background.jpg');
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+    text-align: center;
 }

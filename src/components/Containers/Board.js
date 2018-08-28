@@ -3,7 +3,7 @@ import Square from './Square'
 import '../Modals/ScrubbleStyle.css'
 import drag from "./drag";
 import Tray from "./Tray";
-import Tiles from "./Tiles";
+import Tiles from "./TileList";
 import shuffle from "shuffle-array";
 import draw from "./ShuffleFunction";
 
@@ -20,8 +20,7 @@ class GameBoard extends Component {
                 <tr key={'row_' + i}>
                     {r.map((d, j) => {
                         return (
-                            <Square value={r.letter}
-                                    score={r.score}/>
+                            <Square />
                         )
                     })}
                 </tr>
@@ -44,7 +43,7 @@ class GameBoard extends Component {
         // // const dragTile = drag(tile, tray, this.state.grid[0][0]);
         // const dragTile = this.state.grid[0][0].push(tile.pop());
         return (
-            <table cellSpacing="0" id="grid" className="table">
+            <table cellSpacing="0" id="grid" className="board">
                 <tbody>{rows}</tbody>
             </table>
         )

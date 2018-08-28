@@ -2,8 +2,9 @@ import React, {Fragment, Component} from 'react'
 import Square from './Square'
 import '../Modals/ScrubbleStyle.css'
 import draw from './draw'
-import Tiles from './Tiles'
+import Tiles from './TileList'
 import shuffle from 'shuffle-array'
+import Tile from './Tile'
 
 
 export default class Tray extends Component {
@@ -43,9 +44,9 @@ export default class Tray extends Component {
 
         const tileTray = this.state.tray.map((t, i) => {
             return (
-
-                <td key={'row_' + i}>
-                    <Square value={t.letter}
+                // The /key={'row_' + i}>/ appears to be unnecessary
+                <td >
+                    <Tile value={t.letter}
                             score={t.score}/>
                 </td>
             )

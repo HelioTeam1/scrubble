@@ -1,13 +1,16 @@
 import React, {Component, Fragment} from 'react';
-import Tiles from './Tiles';
+import Tiles from './TileList';
 import extractSeven from './ShuffleFunction'
 import draw from './draw'
 import shuffle from 'shuffle-array'
 import GameBoard from "./Board";
 import Tray from "./Tray";
 import Tile from './Tile';
+import HTML5Backend from 'react-dnd-html5-backend';
+import {DragDropContext} from 'react-dnd';
 
-export default class Game extends Component {
+
+class Game extends Component {
 
 
     render() {
@@ -26,3 +29,5 @@ export default class Game extends Component {
         )
     }
 }
+
+export default DragDropContext(HTML5Backend)(Game);
