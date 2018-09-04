@@ -1,11 +1,11 @@
 import React, {Fragment, Component} from 'react';
 import Square from './Square'
 import '../Modals/ScrubbleStyle.css'
-import drag from "./drag";
-import Tray from "./Tray";
-import Tiles from "./TileList";
-import shuffle from "shuffle-array";
-import draw from "./ShuffleFunction";
+// import drag from "./drag";
+// import Tray from "./Tray";
+// import Tiles from "./TileList";
+// import shuffle from "shuffle-array";
+// import draw from "./ShuffleFunction";
 
 
 class GameBoard extends Component {
@@ -20,12 +20,15 @@ class GameBoard extends Component {
                 <tr key={'row_' + i}>
                     {r.map((d, j) => {
                         return (
-                            <Square />
+                            <Square
+                                id={[i,j]}
+                            value={this.props.letter}
+                            score={this.props.score}/>
                         )
                     })}
                 </tr>
             )
-        });
+         });
         // const tiles = Tiles;
         // //create the empty deck
         // const deck = [];
@@ -43,9 +46,12 @@ class GameBoard extends Component {
         // // const dragTile = drag(tile, tray, this.state.grid[0][0]);
         // const dragTile = this.state.grid[0][0].push(tile.pop());
         return (
-            <table cellSpacing="0" id="grid" className="board">
-                <tbody>{rows}</tbody>
-            </table>
+            <Fragment>
+                <table cellSpacing="0" id="grid" className="board">
+                    <tbody>{rows}</tbody>
+                </table>
+            </Fragment>
+
         )
     }
 }

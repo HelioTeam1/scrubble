@@ -1,15 +1,47 @@
 import React, {Component} from 'react';
 import '../Modals/ScrubbleStyle.css'
 import {DropTarget} from 'react-dnd';
+import update from 'immutability-helper';
+import Tile from './Tile';
 
 
 const squareTarget = {
-    drop() {
-        return {}
+    drop(props, monitor, component) {
+        // const {id} = props;
+        // const sourceObj = monitor.getItem();
+        // if (id !== sourceObj.id) component.pushTile(sourceObj.tile);
+        return {
+            id: props.id
+        }
     }
 };
 
 class Square extends Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         tiles: []
+    //     }
+    // }
+    //
+    // pushTile(tile) {
+    //     this.setState(update(this.state, {
+    //         tiles: {
+    //             $push: [tile]
+    //         }
+    //     }))
+    // }
+    //
+    // removeTile(index) {
+    //     this.setState(update(this.state, {
+    //         tiles: {
+    //             $splice: [
+    //                 [index, 1]
+    //             ]
+    //         }
+    //     }))
+    // }
+
     render() {
         const {canDrop, isOver, connectDropTarget} = this.props;
         const isActive = canDrop && isOver;
